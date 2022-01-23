@@ -9,23 +9,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RoomType = void 0;
+exports.Price = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
-const price_model_1 = require("./price.model");
-let RoomType = class RoomType extends sequelize_typescript_1.Model {
+const roomType_model_1 = require("./roomType.model");
+const sequelize_1 = require("sequelize");
+let Price = class Price extends sequelize_typescript_1.Model {
 };
 __decorate([
     (0, sequelize_typescript_1.Column)({
         allowNull: false,
     }),
-    __metadata("design:type", String)
-], RoomType.prototype, "name", void 0);
+    __metadata("design:type", Date)
+], Price.prototype, "date", void 0);
 __decorate([
-    (0, sequelize_typescript_1.HasMany)(() => price_model_1.Price),
-    __metadata("design:type", Array)
-], RoomType.prototype, "prices", void 0);
-RoomType = __decorate([
+    (0, sequelize_typescript_1.Column)({
+        allowNull: false,
+        type: (0, sequelize_1.DECIMAL)(10, 2)
+    }),
+    __metadata("design:type", Number)
+], Price.prototype, "price", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        allowNull: false
+    }),
+    (0, sequelize_typescript_1.ForeignKey)(() => roomType_model_1.RoomType),
+    __metadata("design:type", Number)
+], Price.prototype, "room_type_id", void 0);
+__decorate([
+    (0, sequelize_typescript_1.BelongsTo)(() => roomType_model_1.RoomType),
+    __metadata("design:type", roomType_model_1.RoomType)
+], Price.prototype, "room_type", void 0);
+Price = __decorate([
     sequelize_typescript_1.Table
-], RoomType);
-exports.RoomType = RoomType;
-//# sourceMappingURL=roomType.model.js.map
+], Price);
+exports.Price = Price;
+//# sourceMappingURL=price.model.js.map

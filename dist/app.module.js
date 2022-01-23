@@ -31,6 +31,7 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const hotel_model_1 = require("./persistence/models/hotel.model");
 const roomType_model_1 = require("./persistence/models/roomType.model");
+const price_model_1 = require("./persistence/models/price.model");
 const sequelize_1 = require("@nestjs/sequelize");
 const config = __importStar(require("./persistence/config/config.json"));
 let AppModule = class AppModule {
@@ -47,7 +48,8 @@ AppModule = __decorate([
                 database: config.development.database,
                 models: [
                     hotel_model_1.Hotel,
-                    roomType_model_1.RoomType
+                    roomType_model_1.RoomType,
+                    price_model_1.Price
                 ],
                 synchronize: true,
                 autoLoadModels: true,
