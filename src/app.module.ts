@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Hotel } from './persistence/models/hotel.model';
+import { RoomType } from './persistence/models/roomType.model';
 import { SequelizeModule, SequelizeModuleOptions } from '@nestjs/sequelize';
 import * as config from './persistence/config/config.json';
 
@@ -15,7 +16,8 @@ import * as config from './persistence/config/config.json';
       password: config.development.password,
       database: config.development.database,
       models:[
-        Hotel
+        Hotel,
+        RoomType
       ],
       synchronize:true,
       autoLoadModels: true,
