@@ -6,23 +6,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.HotelModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const hotel_module_1 = require("./application/features/hotel/hotel.module");
-const persistence_module_1 = require("./persistence/persistence.module");
-let AppModule = class AppModule {
+const cqrs_1 = require("@nestjs/cqrs");
+const hotel_controller_1 = require("./hotel.controller");
+const handlers_1 = require("./queries/handlers");
+const hotel_repository_1 = require("./repository/hotel.repository");
+let HotelModule = class HotelModule {
 };
-AppModule = __decorate([
+HotelModule = __decorate([
     (0, common_1.Module)({
-        imports: [
-            persistence_module_1.PersistenceModule,
-            hotel_module_1.HotelModule
+        imports: [cqrs_1.CqrsModule],
+        controllers: [hotel_controller_1.HotelController],
+        providers: [
+            hotel_repository_1.HotelRepository,
+            ...handlers_1.QueryHandlers
         ],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], HotelModule);
+exports.HotelModule = HotelModule;
+//# sourceMappingURL=hotel.module.js.map
