@@ -1,4 +1,6 @@
-import { Column, Model, Table } from 'sequelize-typescript';
+import { Column, Model, Table, HasMany } from 'sequelize-typescript';
+import {Room} from './room.model';
+import { Reservation } from './reservation.model';
 
 @Table
 export class Hotel extends Model {
@@ -11,5 +13,11 @@ export class Hotel extends Model {
         allowNull: false
     })
     address: string;
+
+    @HasMany(()=>Room)
+    rooms:Room[]
+
+    @HasMany(() => Reservation)
+    reservations: Reservation[]
 
 }

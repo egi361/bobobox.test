@@ -9,34 +9,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Hotel = void 0;
+exports.StayRoom = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 const room_model_1 = require("./room.model");
-const reservation_model_1 = require("./reservation.model");
-let Hotel = class Hotel extends sequelize_typescript_1.Model {
+const stay_model_1 = require("./stay.model");
+let StayRoom = class StayRoom extends sequelize_typescript_1.Model {
 };
 __decorate([
     (0, sequelize_typescript_1.Column)({
         allowNull: false,
     }),
-    __metadata("design:type", String)
-], Hotel.prototype, "hotel_name", void 0);
+    __metadata("design:type", Date)
+], StayRoom.prototype, "date", void 0);
 __decorate([
+    (0, sequelize_typescript_1.ForeignKey)(() => stay_model_1.Stay),
     (0, sequelize_typescript_1.Column)({
         allowNull: false
     }),
-    __metadata("design:type", String)
-], Hotel.prototype, "address", void 0);
+    __metadata("design:type", Number)
+], StayRoom.prototype, "stay_id", void 0);
 __decorate([
-    (0, sequelize_typescript_1.HasMany)(() => room_model_1.Room),
-    __metadata("design:type", Array)
-], Hotel.prototype, "rooms", void 0);
+    (0, sequelize_typescript_1.ForeignKey)(() => room_model_1.Room),
+    (0, sequelize_typescript_1.Column)({
+        allowNull: false
+    }),
+    __metadata("design:type", Number)
+], StayRoom.prototype, "room_id", void 0);
 __decorate([
-    (0, sequelize_typescript_1.HasMany)(() => reservation_model_1.Reservation),
-    __metadata("design:type", Array)
-], Hotel.prototype, "reservations", void 0);
-Hotel = __decorate([
+    (0, sequelize_typescript_1.BelongsTo)(() => stay_model_1.Stay, {
+        onUpdate: 'NO ACTION',
+        onDelete: 'NO ACTION'
+    }),
+    __metadata("design:type", stay_model_1.Stay)
+], StayRoom.prototype, "stay", void 0);
+__decorate([
+    (0, sequelize_typescript_1.BelongsTo)(() => room_model_1.Room),
+    __metadata("design:type", room_model_1.Room)
+], StayRoom.prototype, "room", void 0);
+StayRoom = __decorate([
     sequelize_typescript_1.Table
-], Hotel);
-exports.Hotel = Hotel;
-//# sourceMappingURL=hotel.model.js.map
+], StayRoom);
+exports.StayRoom = StayRoom;
+//# sourceMappingURL=stayRoom.model.js.map

@@ -30,6 +30,10 @@ const common_1 = require("@nestjs/common");
 const hotel_model_1 = require("./models/hotel.model");
 const roomType_model_1 = require("./models/roomType.model");
 const price_model_1 = require("./models/price.model");
+const room_model_1 = require("./models/room.model");
+const reservation_model_1 = require("./models/reservation.model");
+const stay_model_1 = require("./models/stay.model");
+const stayRoom_model_1 = require("./models/stayRoom.model");
 const sequelize_1 = require("@nestjs/sequelize");
 const config = __importStar(require("./config/config.json"));
 let PersistenceModule = class PersistenceModule {
@@ -47,7 +51,11 @@ PersistenceModule = __decorate([
                 models: [
                     hotel_model_1.Hotel,
                     roomType_model_1.RoomType,
-                    price_model_1.Price
+                    price_model_1.Price,
+                    room_model_1.Room,
+                    reservation_model_1.Reservation,
+                    stay_model_1.Stay,
+                    stayRoom_model_1.StayRoom
                 ],
                 synchronize: true,
                 autoLoadModels: true,

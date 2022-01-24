@@ -1,5 +1,4 @@
-import { Column, Model, Table, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
-import {DataTypes} from 'sequelize';
+import { Column, Model, Table, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import {RoomType} from './roomType.model';
 import { DECIMAL } from 'sequelize';
 
@@ -19,7 +18,7 @@ export class Price extends Model {
         allowNull: false
     })
     @ForeignKey(()=>RoomType)
-    room_type_id: Number;
+    room_type_id: number;
 
     @BelongsTo(()=>RoomType)
     room_type:RoomType;

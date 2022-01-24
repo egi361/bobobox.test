@@ -2,6 +2,10 @@ import { Module } from '@nestjs/common';
 import { Hotel } from './models/hotel.model';
 import { RoomType } from './models/roomType.model';
 import { Price } from './models/price.model';
+import { Room } from './models/room.model';
+import { Reservation } from './models/reservation.model';
+import { Stay } from './models/stay.model';
+import { StayRoom } from './models/stayRoom.model';
 import { SequelizeModule } from '@nestjs/sequelize';
 import * as config from './config/config.json';
 
@@ -17,7 +21,11 @@ import * as config from './config/config.json';
             models: [
                 Hotel,
                 RoomType,
-                Price
+                Price,
+                Room,
+                Reservation,
+                Stay,
+                StayRoom
             ],
             synchronize: true,
             autoLoadModels: true,
