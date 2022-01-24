@@ -1,2 +1,3 @@
 import { GetHotelsHandler } from './getHotels.handler';
-export declare const QueryHandlers: (typeof GetHotelsHandler)[];
+import { GetHotelByIdHandler } from './getHotelById.handler';
+export declare const QueryHandlers: (typeof GetHotelsHandler | typeof GetHotelByIdHandler)[];

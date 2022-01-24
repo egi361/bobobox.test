@@ -5,4 +5,5 @@ export declare class HotelController {
     private readonly queryBus;
     constructor(commandBus: CommandBus, queryBus: QueryBus);
     findAll(): Promise<Hotel[]>;
+    find(id: number): Promise<Hotel[]>;
 }

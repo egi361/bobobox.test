@@ -1,4 +1,5 @@
 import { Hotel } from '../../../../persistence/models/hotel.model';
-export declare class HotelRepository {
-    findAll(): Promise<Hotel[]>;
+import BaseRepository from '../../../commons/base.repository';
+export declare class HotelRepository extends BaseRepository<Hotel, number> {
+    constructor();
 }

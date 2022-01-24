@@ -4,5 +4,5 @@ import { GetHotelsQuery } from '../impl';
 export declare class GetHotelsHandler implements IQueryHandler<GetHotelsQuery> {
     private readonly repository;
     constructor(repository: HotelRepository);
-    execute(query: GetHotelsQuery): Promise<import("../../../../../persistence/models/hotel.model").Hotel[]>;
+    execute(query: GetHotelsQuery): Promise<import("../../../../../app.base").Result<import("../../../../../persistence/models/hotel.model").Hotel[], import("../../../../../app.base").RepoError>>;
 }

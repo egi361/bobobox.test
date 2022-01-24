@@ -11,4 +11,5 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./getHotels.query"), exports);
+__exportStar(require("./getHotelById.query"), exports);
 //# sourceMappingURL=index.js.map

@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelController = void 0;
 const common_1 = require("@nestjs/common");
@@ -21,6 +24,9 @@ let HotelController = class HotelController {
     async findAll() {
         return this.queryBus.execute(new impl_1.GetHotelsQuery());
     }
+    async find(id) {
+        return this.queryBus.execute(new impl_1.GetHotelByIdQuery(id));
+    }
 };
 __decorate([
     (0, common_1.Get)(),
@@ -28,6 +34,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], HotelController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], HotelController.prototype, "find", null);
 HotelController = __decorate([
     (0, common_1.Controller)('hotel'),
     __metadata("design:paramtypes", [cqrs_1.CommandBus,
