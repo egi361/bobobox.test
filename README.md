@@ -25,7 +25,7 @@ Using
 6. Repository Pattern
 7. Cqrs Pattern
 
-What has been complete
+What has been completed
 1. Persistence layer
 2. Entities
 3. Basic Cqrs pattern
