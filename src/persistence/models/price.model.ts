@@ -13,7 +13,7 @@ export class Price extends Model {
         allowNull: false,
         type:DECIMAL(10,2)
     })
-    price: Number;
+    price: number;
     @Column({
         allowNull: false
     })

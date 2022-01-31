@@ -18,7 +18,7 @@ let GetHotelByIdHandler = class GetHotelByIdHandler {
         this.repository = repository;
     }
     async execute(query) {
-        return this.repository.findById(query.id);
+        return await this.repository.findById(query.id);
     }
 };
 GetHotelByIdHandler = __decorate([

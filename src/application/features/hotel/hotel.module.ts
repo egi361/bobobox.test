@@ -5,11 +5,11 @@ import { QueryHandlers } from './queries/handlers';
 import { HotelRepository } from './repository/hotel.repository';
 
 @Module({
-  imports: [CqrsModule],
-  controllers: [HotelController],
-  providers: [
-    HotelRepository,
-    ...QueryHandlers
-  ],
+    imports: [CqrsModule],
+    controllers: [HotelController],
+    providers: [
+        HotelRepository,
+        ...QueryHandlers
+    ],
 })
-export class HotelModule {}
+export class HotelModule { }

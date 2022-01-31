@@ -7,12 +7,14 @@ import { AppService } from './app.service';
 // import { SequelizeModule, SequelizeModuleOptions } from '@nestjs/sequelize';
 // import * as config from './persistence/config/config.json';
 import { HotelModule } from './application/features/hotel/hotel.module';
+import { RoomModule } from './application/features/room/room.module';
 import { PersistenceModule } from './persistence/persistence.module';
 
 @Module({
   imports: [
     PersistenceModule,
-    HotelModule
+    HotelModule,
+    RoomModule
   ],
   controllers: [AppController],
   providers: [AppService],

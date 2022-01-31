@@ -7,6 +7,6 @@ export class GetHotelsHandler implements IQueryHandler<GetHotelsQuery> {
   constructor(private readonly repository: HotelRepository) {}
 
   async execute(query: GetHotelsQuery) {
-    return this.repository.findAll();
+    return await this.repository.filter(query);
   }
 }

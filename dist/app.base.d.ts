@@ -11,11 +11,16 @@ export interface BaseResponse {
 export declare class Result<V, E> {
     isSuccess: boolean;
     isFailure: boolean;
-    private error;
-    private value;
-    private constructor();
+    error: E;
+    value: V;
+    constructor(isSuccess: boolean, value: V, error: E);
     static ok<V>(value: V): Result<V, undefined>;
     static fail<E>(error: E): Result<undefined, E>;
     getError(): E;
     getValue(): V;
+}
+export declare class PagedResult<V, E> extends Result<V, E> {
+    count: number;
+    constructor(isSuccess: boolean, value: V, error: E, count: number);
+    static okPaged<V>(value: V, count: number): PagedResult<V, undefined>;
 }

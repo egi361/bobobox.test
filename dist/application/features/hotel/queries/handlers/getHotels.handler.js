@@ -18,7 +18,7 @@ let GetHotelsHandler = class GetHotelsHandler {
         this.repository = repository;
     }
     async execute(query) {
-        return this.repository.findAll();
+        return await this.repository.filter(query);
     }
 };
 GetHotelsHandler = __decorate([

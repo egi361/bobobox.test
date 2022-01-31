@@ -1,5 +1,5 @@
 import sequelize from 'sequelize';
-import { Result, RepoError } from 'bobobox.base';
+import { Result, RepoError } from '../../app.base';
 export declare type RepoResult<M> = Promise<Result<M | undefined, RepoError | undefined>>;
 export interface IRepository<TEntity, TKey> {
     save(model: TEntity): RepoResult<TEntity>;

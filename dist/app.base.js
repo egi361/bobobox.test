@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Result = exports.RepoError = void 0;
+exports.PagedResult = exports.Result = exports.RepoError = void 0;
 class RepoError extends Error {
     constructor(message, code) {
         super(message);
@@ -41,4 +41,14 @@ class Result {
     }
 }
 exports.Result = Result;
+class PagedResult extends Result {
+    constructor(isSuccess, value, error, count) {
+        super(isSuccess, value, error);
+        this.count = count;
+    }
+    static okPaged(value, count) {
+        return new PagedResult(true, value, undefined, count);
+    }
+}
+exports.PagedResult = PagedResult;
 //# sourceMappingURL=app.base.js.map

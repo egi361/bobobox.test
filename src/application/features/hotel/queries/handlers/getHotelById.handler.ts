@@ -7,6 +7,6 @@ export class GetHotelByIdHandler implements IQueryHandler<GetHotelByIdQuery> {
   constructor(private readonly repository: HotelRepository) {}
 
   async execute(query: GetHotelByIdQuery) {
-    return this.repository.findById(query.id);
+    return await this.repository.findById(query.id);
   }
 }

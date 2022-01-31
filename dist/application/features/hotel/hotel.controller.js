@@ -21,8 +21,8 @@ let HotelController = class HotelController {
         this.commandBus = commandBus;
         this.queryBus = queryBus;
     }
-    async findAll() {
-        return this.queryBus.execute(new impl_1.GetHotelsQuery());
+    async findAll(params) {
+        return this.queryBus.execute(new impl_1.GetHotelsQuery(params));
     }
     async find(id) {
         return this.queryBus.execute(new impl_1.GetHotelByIdQuery(id));
@@ -30,8 +30,9 @@ let HotelController = class HotelController {
 };
 __decorate([
     (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], HotelController.prototype, "findAll", null);
 __decorate([

@@ -13,13 +13,15 @@ export interface BaseResponse {
     data: any
 }
 
+
+
 export class Result<V, E> {
     public isSuccess: boolean;
     public isFailure: boolean;
-    private error: E;
-    private value: V;
+    public error: E;
+    public value: V;
 
-    private constructor(isSuccess: boolean, value: V, error: E) {
+    public constructor(isSuccess: boolean, value: V, error: E) {
         if (isSuccess && error) {
             throw new Error('Successful result must not contain an error');
         } else if (!isSuccess && value) {
@@ -54,5 +56,16 @@ export class Result<V, E> {
         }
 
         return this.value;
+    }
+}
+
+export class PagedResult<V,E> extends Result<V,E>{
+    public count!:number;
+    public constructor(isSuccess: boolean, value: V, error: E, count:number) {
+        super(isSuccess, value, error);
+        this.count = count;
+    }
+    public static okPaged<V>(value: V, count: number): PagedResult<V, undefined> {
+        return new PagedResult(true, value, undefined, count);
     }
 }

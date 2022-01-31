@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const hotel_module_1 = require("./application/features/hotel/hotel.module");
+const room_module_1 = require("./application/features/room/room.module");
 const persistence_module_1 = require("./persistence/persistence.module");
 let AppModule = class AppModule {
 };
@@ -18,7 +19,8 @@ AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             persistence_module_1.PersistenceModule,
-            hotel_module_1.HotelModule
+            hotel_module_1.HotelModule,
+            room_module_1.RoomModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
